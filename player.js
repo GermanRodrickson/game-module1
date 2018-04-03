@@ -14,7 +14,6 @@ function Player(ctx) {
     x: 10,
     y: 20
   };
-  //self.move();
   
 }
 
@@ -24,10 +23,6 @@ Player.prototype.draw = function() {
   self.ctx.clearRect(0, 0, self.width, self.heigth);
    self.ctx.fillStyle = "red";
   self.ctx.fillRect(self.x, self.y, 25, 25);
-
-    window.requestAnimationFrame(function() {
-      self.draw();
-    });
 };
 
 // ----------- Movements--------------- // cambiarlo en el caso de cambiar tamaño de la pantalla 
@@ -36,8 +31,8 @@ Player.prototype.moveUp = function() {
   if(self.y - 10 >= 10){
     self.y -= self.speed;
   }
-
 };
+
 Player.prototype.moveDown = function() {
   var self = this;
   if(self.y + 10 <= 470) {
@@ -47,13 +42,12 @@ Player.prototype.moveDown = function() {
 
 Player.prototype.moveRight = function() {
   var self = this;
-  console.log(self.x)
   if(self.x + 10 <= 850)
   self.x += self.speed;
 };
+
 Player.prototype.moveLeft = function() {
   var self = this;
-  console.log(self.x)
   if(self.x - 10 >= 10)
   self.x -= self.speed;
 

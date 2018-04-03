@@ -17,17 +17,32 @@ function Game(canvas) {
   self.score = 0;
   
   self.player = new Player(self.ctx);
+  self.enemy = new Enemy(self.ctx);
+
+  self.enemies = [];
+
+
   self.frame();
 };
 
+///method for create enemies
+// for (var i until 10) 
+//  enemies.push(new Enemy);
+
+
 Game.prototype.update = function() {
   var self = this;
-
+  
+  self.enemy.update()
   self.player.update()
 }
 
 Game.prototype.draw = function() {
   var self = this;
+
+  self.enemy.draw();
+
+  // self.enemies.forEach(function (enemy) {  enemy.draw()  })
 
   self.player.draw();
 };

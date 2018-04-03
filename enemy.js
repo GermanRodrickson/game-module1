@@ -1,23 +1,27 @@
-function Enemy(canvas) {
+function Enemy(ctx) {
   var self = this;
 
-  self.x = 25;
-  self.y = 25;
+  self.x = Math.floor(Math.random() * 900);
+  self.y = -5 ;
   self.canvas = canvas;
-  self.ctx = canvas.getContext("2d");
+  self.ctx = ctx;
 
-
-
-  self.draw();
+  self.speed = SPEED / 2
 }
 
 Enemy.prototype.draw = function () {
-  var self = this
-  self.ctx.clearRect(0, 0, self.width, self.heigth);
-  self.ctx.fillStyle = "white";
-  self.ctx.fillRect(0, 0, self.width, self.height);
+  var self = this;
 
-  window.requestAnimationFrame(function() {
-    self.draw();
-  });
+  self.ctx.fillStyle = "blue";
+  self.ctx.fillRect(self.x, self.y, 30, 30);
+}
+
+Enemy.prototype.update = function () {
+  var self = this
+
+  self.y ++
+  if(self.y > 500 ){
+    self.y = Math.floor(Math.random() * -50)
+    self.x = Math.floor(Math.random() * 900)
+  }
 }
