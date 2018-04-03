@@ -58,7 +58,7 @@ function main() {
   
 
 
-   // window.setTimeout(gameEnded, 1000);
+  //  window.setTimeout(gameEnded, 3000);
   }
 
   function destroyGameScreen() {

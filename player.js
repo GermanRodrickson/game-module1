@@ -30,21 +30,31 @@ Player.prototype.draw = function() {
     });
 };
 
-// ----------- Movements---------------
+// ----------- Movements--------------- // cambiarlo en el caso de cambiar tamaño de la pantalla 
 Player.prototype.moveUp = function() {
   var self = this;
-  self.y -= self.speed;
+  if(self.y - 10 >= 10){
+    self.y -= self.speed;
+  }
+
 };
 Player.prototype.moveDown = function() {
   var self = this;
-  self.y += self.speed;
+  if(self.y + 10 <= 470) {
+    self.y += self.speed;
+  }
 };
+
 Player.prototype.moveRight = function() {
   var self = this;
+  console.log(self.x)
+  if(self.x + 10 <= 850)
   self.x += self.speed;
 };
 Player.prototype.moveLeft = function() {
   var self = this;
+  console.log(self.x)
+  if(self.x - 10 >= 10)
   self.x -= self.speed;
 
 };
