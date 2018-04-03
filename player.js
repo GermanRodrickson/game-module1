@@ -1,22 +1,23 @@
 
-function Player(canvas) {
+function Player(ctx) {
   var self = this;
   
   self.x = 900/2;
   self.y = 450;
   self.canvas = canvas;
-  self.ctx = canvas.getContext("2d");
+  self.ctx = ctx;
+
+  self.speed = SPEED * 2;
 
 
   self.size = {
     x: 10,
     y: 20
   };
-  //self.update();
-  self.draw();
   //self.move();
   
 }
+
 // ----------- Draw---------------
 Player.prototype.draw = function() {
   var self = this;
@@ -32,35 +33,38 @@ Player.prototype.draw = function() {
 // ----------- Movements---------------
 Player.prototype.moveUp = function() {
   var self = this;
-  self.y -= 10;
+  self.y -= self.speed;
 };
 Player.prototype.moveDown = function() {
   var self = this;
-  self.y += 10;
+  self.y += self.speed;
 };
 Player.prototype.moveRight = function() {
   var self = this;
-  self.x += 10;
+  self.x += self.speed;
 };
 Player.prototype.moveLeft = function() {
   var self = this;
-  self.x -= 10;
+  self.x -= self.speed;
+
 };
+
 // ----------- Update---------------
 Player.prototype.update = function() {
+  var self = this;
   document.onkeydown = function(event) {
     switch (event.keyCode) {
       case 38:
-        moveUp();
+        self.moveUp();
         break;
       case 40:
-        moveDown();
+        self.moveDown();
         break;
       case 37:
-        moveLeft();
+        self.moveLeft();
         break;
       case 39:
-        moveRight();
+        self.moveRight();
         break;
     }
   };

@@ -7,6 +7,7 @@ function createHtml(html) {
 }
 
 function main() {
+
   var mainContentElement = document.getElementById("main-content");
 
   // -- TITLE SCREEN
@@ -53,8 +54,8 @@ function main() {
     mainContentElement.appendChild(gameScreenElement);
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas);
-    player = new Player(canvas);
     enemy = new Enemy(canvas);
+  
 
 
    // window.setTimeout(gameEnded, 1000);

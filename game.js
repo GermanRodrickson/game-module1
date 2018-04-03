@@ -1,3 +1,5 @@
+var SPEED = 10;
+
 function Game(canvas) {
   var self = this;
 
@@ -13,9 +15,21 @@ function Game(canvas) {
   self.y = 450;
 
   self.score = 0;
+  
+  self.player = new Player(self.ctx);
   self.frame();
+};
 
-  //self.player = new Player(self.ctx);
+Game.prototype.update = function() {
+  var self = this;
+
+  self.player.update()
+}
+
+Game.prototype.draw = function() {
+  var self = this;
+
+  self.player.draw();
 };
 
 Game.prototype.frame = function() {
@@ -24,8 +38,8 @@ Game.prototype.frame = function() {
   self.ctx.fillStyle = "grey";
   self.ctx.fillRect(0, 0, self.width, self.height);
 
-  // self.player.update()
-  //self.player.draw()
+  self.update();
+  self.draw();
   window.requestAnimationFrame(function() {
     self.frame();
   });
