@@ -1,0 +1,88 @@
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+/* ---- background ---- */
+
+/* .main-background {
+  background: url("./images/frenos.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+/* .game-over-background {
+  background: url("./images/game-over-background.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+
+/* ---- typography ---- */
+
+body {
+  color: #111;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+}
+.main-title, 
+.main-buttons,
+.restart,
+.game-over-title,
+.score {
+  font-family: 'Press Start 2P';
+}
+
+/* ---- main-title ---- */
+
+.main-title,
+.game-over-title {
+  text-align: center;
+  margin-top: 150px;
+}
+
+/* ---- main-buttons ---- */
+.main-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 200px;
+}
+.start-game,
+.restart {
+  padding: 10px;
+  color: #c0392b;
+}
+.instructions {
+  color: #f1c40f;
+}
+
+
+/* ---- game-over ---- */
+.game-over-text {
+text-align: center;
+margin-top: 150px;
+}
+.game-over-text p {
+  margin-bottom: 80px;
+}
+
+
+#canvas {
+    margin:50px;
+    border: 3px solid green;
+    padding: 10px;
+}

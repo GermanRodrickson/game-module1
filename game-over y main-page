@@ -1,0 +1,38 @@
+    <h1 class = "main-title">Help **** get home</h1>
+    <div class = "main-buttons">
+      <button class = "start-game">Start game</button>
+      <button class = "instructions">Instructions</button>
+    </div>
+
+--------------------------------------------------------------
+
+
+     <h1 class="game-over-title">Game Over</h1>
+      <div class = "game-over-text">
+        <p class = "score">Score:</p>
+        <button class="restart">Restart</button>
+      </div>
+
+ --------------------------------------------------------------
+
+var newDiv = document.getElementById("main-content");
+newDiv.setAttribute("class", "main-background");
+
+newDiv.innerHTML = `<h1 class = "main-title">Help **** get home</h1>
+    <div class = "main-buttons">
+      <button class = "start-game">Start game</button>
+      <button class = "instructions">Instructions</button>
+    </div>`;
+
+
+function createHTML(text, classElement) {
+  var newDiv = document.createElement("div")
+  newDiv.setAttribute("class", classElement);
+  newDiv.innerHTML = text
+  return newDiv.children[0]
+}
+
+function main () {
+  var mainContentElement = document.getElementById("main-content");
+
+}
