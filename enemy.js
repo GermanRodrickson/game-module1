@@ -1,10 +1,11 @@
 function Enemy(ctx) {
   var self = this;
+  
+  self.canvas = canvas;
+  self.ctx = ctx;
 
   self.x = Math.floor(Math.random() * 900);
   self.y = -5 ;
-  self.canvas = canvas;
-  self.ctx = ctx;
 
   self.speed = SPEED / 2
 }

@@ -17,10 +17,10 @@ function Player(ctx) {
   
 }
 
-// ----------- Draw---------------
+// ----------- Draw--------------- 
 Player.prototype.draw = function() {
   var self = this;
-  self.ctx.clearRect(0, 0, self.width, self.heigth);
+
    self.ctx.fillStyle = "red";
   self.ctx.fillRect(self.x, self.y, 25, 25);
 };
@@ -28,6 +28,7 @@ Player.prototype.draw = function() {
 // ----------- Movements--------------- // cambiarlo en el caso de cambiar tamaño de la pantalla 
 Player.prototype.moveUp = function() {
   var self = this;
+
   if(self.y - 10 >= 10){
     self.y -= self.speed;
   }
@@ -35,6 +36,7 @@ Player.prototype.moveUp = function() {
 
 Player.prototype.moveDown = function() {
   var self = this;
+
   if(self.y + 10 <= 470) {
     self.y += self.speed;
   }
@@ -42,12 +44,14 @@ Player.prototype.moveDown = function() {
 
 Player.prototype.moveRight = function() {
   var self = this;
+
   if(self.x + 10 <= 850)
   self.x += self.speed;
 };
 
 Player.prototype.moveLeft = function() {
   var self = this;
+
   if(self.x - 10 >= 10)
   self.x -= self.speed;
 
@@ -56,6 +60,7 @@ Player.prototype.moveLeft = function() {
 // ----------- Update---------------
 Player.prototype.update = function() {
   var self = this;
+
   document.onkeydown = function(event) {
     switch (event.keyCode) {
       case 38:
