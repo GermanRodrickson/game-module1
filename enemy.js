@@ -7,7 +7,7 @@ function Enemy(ctx) {
   self.x = Math.floor(Math.random() * 900);
   self.y = -5 ;
 
-  self.speed = 2 + Math.floor(Math.random() * 18);
+  self.speed = 2 + Math.floor(Math.random() * 8);
 }
 
 Enemy.prototype.update = function () {
