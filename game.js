@@ -36,18 +36,14 @@ Game.prototype.createEnemies = function () {
   if(self.enemies.length < 10) {
   for (var i = 0; i < 10; i++) {
     self.enemies.push(new Enemy(self.ctx));
-    console.log(self.enemies)
-      
     }
   }
-
 }
 
 Game.prototype.update = function() {
   var self = this;
   
   self.enemies.forEach(function(enemy) {
-    debugger;
     enemy.update();
   });
   self.player.update()
@@ -58,9 +54,7 @@ Game.prototype.draw = function() {
 
   self.enemies.forEach(function(enemy) {
       enemy.draw()
-    })
-
-
+    });
   self.player.draw();
 };
 

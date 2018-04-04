@@ -45,15 +45,17 @@ Player.prototype.moveDown = function() {
 Player.prototype.moveRight = function() {
   var self = this;
 
-  if(self.x + 10 <= 850)
+  if(self.x + 10 <= 850) {
   self.x += self.speed;
+  }
 };
 
 Player.prototype.moveLeft = function() {
   var self = this;
 
-  if(self.x - 10 >= 10)
+  if(self.x - 10 >= 10) {
   self.x -= self.speed;
+  }
 
 };
 
