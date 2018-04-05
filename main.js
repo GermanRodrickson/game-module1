@@ -44,7 +44,7 @@ function main() {
   var player;
   var enemy;
 
-  function gameEnded() {
+  function gameEnded(score) {
     destroyGameScreen();
     buildGameOverScreen();
   }
@@ -55,12 +55,10 @@ function main() {
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas);
     enemy = new Enemy(canvas);
-  
-
-
-  //  window.setTimeout(gameEnded, 3000);
+    game.onEnded(function(score){
+      gameEnded(score)
+    })
   }
-
   function destroyGameScreen() {
     gameScreenElement.remove();
   }

@@ -1,4 +1,5 @@
-var SPEED = 10;
+'use strict'
+var SPEED = 5;
 
 function Game(canvas) {
   var self = this; 
@@ -15,13 +16,15 @@ function Game(canvas) {
   self.y = 450;
 
   self.score = 0;
+  self.isOver = false;
   
   self.player = new Player(self.ctx);
 
   self.enemies = [];
 
-
+  self.scoreInterval = null;
   self.frame();
+  self.createScore();
 };
 
 
@@ -36,6 +39,7 @@ Game.prototype.createEnemies = function () {
 }
 Game.prototype.checkCollisions = function() {
   var self = this;
+  
 
   self.enemies.forEach(function(enemy) {
     var player = {
@@ -54,21 +58,35 @@ Game.prototype.checkCollisions = function() {
 
     if(enemy.leftEdge < player.leftEdge && player.leftEdge < enemy.rigthEdge){
       if(enemy.topEdge < player.topEdge && player.topEdge < enemy.bottomEdge ){
-        console.log('lolololollo')
+        self.isOver = true; 
       }
       if (enemy.topEdge < player.bottomEdge && player.bottomEdge < enemy.bottomEdge) {
-        console.log("ttt");
+        self.isOver = true; 
       }
     }
     if(enemy.leftEdge < player.rigthEdge && player.rigthEdge < enemy.rigthEdge){
       if (enemy.topEdge < player.topEdge && player.topEdge < enemy.bottomEdge){
-        console.log("laalalalla");
+        self.isOver = true; 
       }
       if(enemy.topEdge < player.bottomEdge && player.bottomEdge < enemy.bottomEdge){
-        console.log('ttt')
+        self.isOver = true; 
       }
     }
   });
+}
+
+Game.prototype.createScore = function() {
+  var self = this;
+
+  self.scoreInterval = window.setInterval(function() {
+    self.updateScore();
+  }, 1000);
+}
+
+Game.prototype.updateScore = function() {
+  var self = this;
+
+  self.score += 10;
 }
 
 Game.prototype.update = function() {
@@ -93,14 +111,15 @@ Game.prototype.draw = function() {
 Game.prototype.drawScore = function () {
   var self = this;
 
+ 
   self.ctx.fillStyle = 'white'
   self.ctx.font = '30px Arial'
-  self.ctx.fillText('Score:  ', 50, 50 )
+  self.ctx.fillText('Score: ' + self.score, 50, 50 )
 }
 
 Game.prototype.frame = function() {
   var self = this;
-
+  
   self.ctx.clearRect(0, 0, self.width, self.heigth);
   self.ctx.fillStyle = "grey";
   self.ctx.fillRect(0, 0, self.width, self.height);
@@ -110,10 +129,19 @@ Game.prototype.frame = function() {
   self.draw();
   self.drawScore();
 
-
+  if(self.isOver) {
+    self.callback(self.score)
+  }
+  
+  if(!self.isOver){
   window.requestAnimationFrame(function() {
     self.frame();
   });
-
+  }
 };
 
+Game.prototype.onEnded = function (cb){
+  var self = this;
+
+  self.callback = cb
+}

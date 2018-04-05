@@ -20,9 +20,11 @@ function Enemy(ctx) {
 Enemy.prototype.update = function () {
   var self = this
   
-  randomNumberX = Math.floor(Math.random() * 15);
+  randomNumberX = Math.floor(Math.random() * 10);
   if(randomNumberX === 5) {
     self.position.x += self.speed;
+  } else if (randomNumberX === 3) {
+    self.position.x -= self.speed;
   }
   self.position.y += self.speed;
   if(self.position.y > 500 ){

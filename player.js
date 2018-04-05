@@ -5,12 +5,14 @@ function Player(ctx) {
   self.canvas = canvas;
   self.ctx = ctx;
 
+  
   self.position = {
     x: 900/2,
     y: 450
   };
+  
 
-  self.speed = SPEED;
+  self.speed = SPEED * 5;
 
   self.size = {
     x: 25,
@@ -84,6 +86,5 @@ Player.prototype.update = function() {
   };
 }
 
-//------------ Score ----------
 
 
