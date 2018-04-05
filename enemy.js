@@ -15,6 +15,9 @@ function Enemy(ctx) {
     x: 30,
     y: 30
   };
+
+   self.img = new Image();
+   self.img.src = "./images/cara-rapha.png";
 }
 
 Enemy.prototype.update = function () {
@@ -35,6 +38,5 @@ Enemy.prototype.update = function () {
 Enemy.prototype.draw = function () {
   var self = this;
 
-  self.ctx.fillStyle = "blue";
-  self.ctx.fillRect(self.position.x, self.position.y, self.size.x, self.size.y);
+  self.ctx.drawImage(self.img, self.position.x, self.position.y, self.size.x, self.size.y);
 }

@@ -15,18 +15,19 @@ function Player(ctx) {
   self.speed = SPEED * 5;
 
   self.size = {
-    x: 25,
-    y: 45
+    x: 45,
+    y: 80
   };
+  self.img = new Image();
+  self.img.src = "./images/power-bike-top copia.png";
   
 }
 
 // ----------- Draw--------------- 
 Player.prototype.draw = function() {
   var self = this;
-
-   self.ctx.fillStyle = "red";
-  self.ctx.fillRect(self.position.x, self.position.y, self.size.x, self.size.y);
+  
+  self.ctx.drawImage(self.img, self.position.x, self.position.y, self.size.x, self.size.y);
   
 };
 

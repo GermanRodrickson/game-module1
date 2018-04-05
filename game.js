@@ -131,9 +131,7 @@ Game.prototype.frame = function() {
 
   if(self.isOver) {
     self.callback(self.score)
-  }
-  
-  if(!self.isOver){
+  } else {
   window.requestAnimationFrame(function() {
     self.frame();
   });

@@ -46,7 +46,7 @@ function main() {
 
   function gameEnded(score) {
     destroyGameScreen();
-    buildGameOverScreen();
+    buildGameOverScreen(score);
   }
 
   function buildGameScreen() {
@@ -73,11 +73,11 @@ function main() {
     buildGameScreen();
   }
 
-  function buildGameOverScreen() {
+  function buildGameOverScreen(score) {
     gameOverScreenElement = createHtml(`<div class = "game-over-background">
     <h1 class="game-over-title">Game Over</h1>
       <div class = "game-over-text">
-        <p class = "score">Score:</p>
+        <p class = "score">Score:`+score+`</p>
         <button class="restart">Restart</button>
       </div>
       </div>`);
