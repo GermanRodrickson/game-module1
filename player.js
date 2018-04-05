@@ -11,15 +11,17 @@ function Player(ctx) {
     y: 450
   };
   
-
+  self.direction = null;
   self.speed = SPEED * 5;
 
   self.size = {
-    x: 45,
-    y: 80
+    x: 60,
+    y: 120
   };
   self.img = new Image();
-  self.img.src = "./images/power-bike-top copia.png";
+  self.img.src = "./images/power-bike-top copia.png"; 
+
+  self.setupKeybinding();
   
 }
 
@@ -65,26 +67,68 @@ Player.prototype.moveLeft = function() {
 
 };
 
+Player.prototype.setupKeybinding = function () {
+  var self = this;
+  document.onkeydown = function(event) {
+    event.preventDefault();
+    switch (event.keyCode) {
+      case 38:
+        self.direction = 'up'
+        self.speed = SPEED * 2
+        break;
+      case 40:
+        self.direction = 'down'
+        self.speed = SPEED * 2
+        break;
+      case 37:
+        self.direction = 'left'
+        self.speed = SPEED * 2
+        break;
+      case 39:
+        self.direction = 'right'
+        self.speed = SPEED * 2
+        break;
+    }
+  };
+
+  document.onkeyup = function(event) {
+    event.preventDefault();
+    switch (event.keyCode) {
+      case 38:
+        self.speed = 0
+        break;
+      case 40:
+        self.speed = 0
+        break;
+      case 37:
+        self.speed = 0
+        break;
+      case 39:
+        self.speed = 0
+        break;
+    }
+  };
+
+}
+
 // ----------- Update---------------
 Player.prototype.update = function() {
   var self = this;
 
-  document.onkeydown = function(event) {
-    switch (event.keyCode) {
-      case 38:
-        self.moveUp();
-        break;
-      case 40:
-        self.moveDown();
-        break;
-      case 37:
-        self.moveLeft();
-        break;
-      case 39:
-        self.moveRight();
-        break;
-    }
-  };
+  switch (self.direction) {
+    case 'up':
+      self.moveUp();
+      break;
+    case 'down':
+      self.moveDown();
+      break;
+    case 'left':
+      self.moveLeft();
+      break;
+    case 'right':
+      self.moveRight();
+      break;
+  }
 }
 
 

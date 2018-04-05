@@ -12,8 +12,8 @@ function Enemy(ctx) {
   self.speed = 2 + Math.floor(Math.random() * SPEED);
 
    self.size = {
-    x: 30,
-    y: 30
+    x: 40,
+    y: 40
   };
 
    self.img = new Image();

@@ -25,6 +25,7 @@ function main() {
     <h1 class = "main-title">Help **** get home</h1>
     <div class = "main-buttons">
       <button>Start game</button>
+      <button>Instruccions</button>
     </div>
     </div>`);
     mainContentElement.appendChild(titleScreenElement);
@@ -50,7 +51,7 @@ function main() {
   }
 
   function buildGameScreen() {
-    gameScreenElement = createHtml(`<canvas id="canvas"></canvas>`);
+    gameScreenElement = createHtml(`<div class = "rapha"><canvas id="canvas"></canvas></div>`);
     mainContentElement.appendChild(gameScreenElement);
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas);

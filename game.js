@@ -21,6 +21,8 @@ function Game(canvas) {
   self.player = new Player(self.ctx);
 
   self.enemies = [];
+  self.img = new Image();
+  self.img.src = "./images/a3cdd2d5633aa941fb00726edc25e4ff.jpg"; 
 
   self.scoreInterval = null;
   self.frame();
@@ -59,16 +61,14 @@ Game.prototype.checkCollisions = function() {
     if(enemy.leftEdge < player.leftEdge && player.leftEdge < enemy.rigthEdge){
       if(enemy.topEdge < player.topEdge && player.topEdge < enemy.bottomEdge ){
         self.isOver = true; 
-      }
-      if (enemy.topEdge < player.bottomEdge && player.bottomEdge < enemy.bottomEdge) {
+      } else if (enemy.topEdge < player.bottomEdge && player.bottomEdge < enemy.bottomEdge) {
         self.isOver = true; 
       }
     }
     if(enemy.leftEdge < player.rigthEdge && player.rigthEdge < enemy.rigthEdge){
       if (enemy.topEdge < player.topEdge && player.topEdge < enemy.bottomEdge){
         self.isOver = true; 
-      }
-      if(enemy.topEdge < player.bottomEdge && player.bottomEdge < enemy.bottomEdge){
+      } else if(enemy.topEdge < player.bottomEdge && player.bottomEdge < enemy.bottomEdge){
         self.isOver = true; 
       }
     }
@@ -122,7 +122,7 @@ Game.prototype.frame = function() {
   
   self.ctx.clearRect(0, 0, self.width, self.heigth);
   self.ctx.fillStyle = "grey";
-  self.ctx.fillRect(0, 0, self.width, self.height);
+  self.ctx.drawImage(self.img, 0, 0, self.width, self.height);
 
   self.createEnemies();
   self.update();

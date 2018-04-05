@@ -14,22 +14,22 @@ body {
 }
 /* ---- background ---- */
 
-/* .main-background {
-  background: url("./images/frenos.gif");
+.main-background {
+  background: url("./images/fat.gif");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   width: 100%;
   height: 100%;
-} */
-/* .game-over-background {
-  background: url("./images/game-over-background.gif");
+}  
+.game-over-background {
+  background: url("./images/Face GIF-source.gif");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   width: 100%;
   height: 100%;
-} */
+} 
 
 /* ---- typography ---- */
 
@@ -55,6 +55,11 @@ body {
   margin-top: 150px;
 }
 
+.main-background h1 {
+  background: white;
+  padding: 5px
+}
+
 /* ---- main-buttons ---- */
 .main-buttons {
   display: flex;
@@ -78,11 +83,24 @@ margin-top: 150px;
 }
 .game-over-text p {
   margin-bottom: 80px;
+  font-size: 40px;
+}
+.game-over-background h1{
+font-size: 80px;
 }
 
 
 #canvas {
-    margin: 50px;
-    border: 3px solid green;
+    margin: 100px 250px;
+    border: 3px solid grey;
     padding: 10px;
+}
+
+.rapha {
+    background: url("./images/nyc street GIF-source.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
