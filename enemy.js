@@ -1,4 +1,4 @@
-function Enemy(ctx) {
+function Enemy(ctx, img) {
   var self = this;
   
   self.canvas = canvas;
@@ -17,9 +17,10 @@ function Enemy(ctx) {
   };
 
    self.img = new Image();
-   self.img.src = "./images/cara-rapha.png";
+   self.img.src = img;
 }
 
+//Method para hacer el movimiento de los enemies aleatorios, y que se creen también aleatoriamente 
 Enemy.prototype.update = function () {
   var self = this
   
@@ -35,6 +36,8 @@ Enemy.prototype.update = function () {
     self.position.x = Math.floor(Math.random() * 900)
   }
 }
+
+//Pinta al enemigo con una imagen
 Enemy.prototype.draw = function () {
   var self = this;
 

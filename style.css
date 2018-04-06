@@ -60,6 +60,9 @@ body {
   padding: 5px
 }
 
+.main-background p {
+  background-color:white;
+}
 /* ---- main-buttons ---- */
 .main-buttons {
   display: flex;
@@ -97,7 +100,7 @@ font-size: 80px;
 }
 
 .rapha {
-    background: url("./images/nyc street GIF-source.gif");
+   background: url("./images/Dark-Grey-Background-High-Resolution-Photo-isk6e-Free.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;

@@ -23,26 +23,28 @@ function Game(canvas) {
   self.enemies = [];
   self.img = new Image();
   self.img.src = "./images/a3cdd2d5633aa941fb00726edc25e4ff.jpg"; 
+  self.enemiesImages = ["./images/imagenes-german/byron.png", "./images/imagenes-german/eloi.png", "./images/imagenes-german/filipe.png", "./images/imagenes-german/greta.png", "./images/imagenes-german/jordi.png", "./images/imagenes-german/jorge.png", "./images/imagenes-german/lennie.png", "./images/imagenes-german/mathi.png", "./images/imagenes-german/mihai.png", "./images/imagenes-german/miriam.png", "./images/imagenes-german/fredrik.png"];
 
   self.scoreInterval = null;
   self.frame();
   self.createScore();
 };
 
-
+//Method que hace un push de 10 Enemy a una array de enemies
 Game.prototype.createEnemies = function () {
   var self = this;
 
   if(self.enemies.length < 10) {
   for (var i = 0; i < 10; i++) {
-    self.enemies.push(new Enemy(self.ctx));
+    self.enemies.push(new Enemy(self.ctx, self.enemiesImages[Math.floor(Math.random() * self.enemiesImages.length)]));
     }
   }
 }
+
+//Method que comprueba la colisión de objetos a player
 Game.prototype.checkCollisions = function() {
   var self = this;
   
-
   self.enemies.forEach(function(enemy) {
     var player = {
       leftEdge: self.player.position.x,
@@ -75,20 +77,23 @@ Game.prototype.checkCollisions = function() {
   });
 }
 
+//Method que cada segundo llama a la función que sumas 10 al score 
 Game.prototype.createScore = function() {
   var self = this;
 
   self.scoreInterval = window.setInterval(function() {
     self.updateScore();
-  }, 1000);
+  }, 500);
 }
 
+//Method que aumenta en 10 el score 
 Game.prototype.updateScore = function() {
   var self = this;
 
   self.score += 10;
 }
 
+//Mehtod que hace el update de player y enemie para comprobar posibles cambios como colisiones 
 Game.prototype.update = function() {
   var self = this;
 
@@ -99,6 +104,7 @@ Game.prototype.update = function() {
   self.player.update();
 }
 
+//Method para dibujar tanto a la array de enemies como al player 
 Game.prototype.draw = function() {
   var self = this;
 
@@ -108,6 +114,7 @@ Game.prototype.draw = function() {
   self.player.draw();
 };
 
+//Method que dibuja el score en la parte deseada de la pantalla 
 Game.prototype.drawScore = function () {
   var self = this;
 
@@ -117,11 +124,11 @@ Game.prototype.drawScore = function () {
   self.ctx.fillText('Score: ' + self.score, 50, 50 )
 }
 
+//Method que ejecuta todo lo anterior y dibuja el fondo 
 Game.prototype.frame = function() {
   var self = this;
   
   self.ctx.clearRect(0, 0, self.width, self.heigth);
-  self.ctx.fillStyle = "grey";
   self.ctx.drawImage(self.img, 0, 0, self.width, self.height);
 
   self.createEnemies();
@@ -138,6 +145,7 @@ Game.prototype.frame = function() {
   }
 };
 
+//Method que llama al callback para acabar el juego
 Game.prototype.onEnded = function (cb){
   var self = this;
 

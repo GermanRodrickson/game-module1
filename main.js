@@ -14,6 +14,7 @@ function main() {
 
   var titleScreenElement;
   var startButtonElement;
+  var instruccions;
 
   function handleStartClick() {
     destroyTitleScreen();
@@ -22,14 +23,14 @@ function main() {
 
   function buildTitleScreen() {
     titleScreenElement = createHtml(`<div class = "main-background">
-    <h1 class = "main-title">Help **** get home</h1>
+    <h1 class = "main-title">Help Andre Get Home</h1>
     <div class = "main-buttons">
-      <button>Start game</button>
-      <button>Instruccions</button>
+      <button class = "start-game">Start game</button>
+      <p>Use the arrow keys <br>to avoid the student</p>
     </div>
     </div>`);
     mainContentElement.appendChild(titleScreenElement);
-    startButtonElement = titleScreenElement.querySelector("button");
+    startButtonElement = titleScreenElement.querySelector(".start-game");
     startButtonElement.addEventListener("click", handleStartClick);
   }
 

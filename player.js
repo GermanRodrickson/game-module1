@@ -25,7 +25,7 @@ function Player(ctx) {
   
 }
 
-// ----------- Draw--------------- 
+// Method para dibujar el player con una imagen
 Player.prototype.draw = function() {
   var self = this;
   
@@ -33,7 +33,7 @@ Player.prototype.draw = function() {
   
 };
 
-// ----------- Movements--------------- // cambiarlo en el caso de cambiar tamaño de la pantalla 
+//Method para realizar los movimientos del player, cambiarlo en el caso de cambiar tamaño de la pantalla 
 Player.prototype.moveUp = function() {
   var self = this;
 
@@ -67,6 +67,7 @@ Player.prototype.moveLeft = function() {
 
 };
 
+//Method para hacer el movimiento mas fluido 
 Player.prototype.setupKeybinding = function () {
   var self = this;
   document.onkeydown = function(event) {
@@ -90,7 +91,7 @@ Player.prototype.setupKeybinding = function () {
         break;
     }
   };
-
+//Method para hacer que el jugador pare cuando levantamos la tecla
   document.onkeyup = function(event) {
     event.preventDefault();
     switch (event.keyCode) {
@@ -111,7 +112,7 @@ Player.prototype.setupKeybinding = function () {
 
 }
 
-// ----------- Update---------------
+//Movimiento mediante keys
 Player.prototype.update = function() {
   var self = this;
 
