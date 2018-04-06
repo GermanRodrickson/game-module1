@@ -23,7 +23,7 @@ function Game(canvas) {
   self.enemies = [];
   self.img = new Image();
   self.img.src = "./images/a3cdd2d5633aa941fb00726edc25e4ff.jpg"; 
-  self.enemiesImages = ["./images/imagenes-german/byron.png", "./images/imagenes-german/eloi.png", "./images/imagenes-german/filipe.png", "./images/imagenes-german/greta.png", "./images/imagenes-german/jordi.png", "./images/imagenes-german/jorge.png", "./images/imagenes-german/lennie.png", "./images/imagenes-german/mathi.png", "./images/imagenes-german/mihai.png", "./images/imagenes-german/miriam.png", "./images/imagenes-german/fredrik.png", "./images/imagenes-german/seba.png.png", "./images/imagenes-german/samantha.png.png"];
+  self.enemiesImages = ["./images/imagenes-german/byron.png", "./images/imagenes-german/eloi.png", "./images/imagenes-german/filipe.png", "./images/imagenes-german/greta.png", "./images/imagenes-german/jordi.png", "./images/imagenes-german/jorge.png", "./images/imagenes-german/lennie.png", "./images/imagenes-german/mathi.png", "./images/imagenes-german/mihai.png", "./images/imagenes-german/miriam.png", "./images/imagenes-german/fredrik.png", "./images/imagenes-german/seba.png", "./images/imagenes-german/samantha.png"];
 
   self.scoreInterval = null;
   self.frame();
